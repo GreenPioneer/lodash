@@ -1,5 +1,5 @@
 /**
- * lodash 4.0.0 (Custom Build) <https://lodash.com/>
+ * lodash 4.0.1 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -62,7 +62,11 @@ function throttle(func, wait, options) {
     leading = 'leading' in options ? !!options.leading : leading;
     trailing = 'trailing' in options ? !!options.trailing : trailing;
   }
-  return debounce(func, wait, { 'leading': leading, 'maxWait': wait, 'trailing': trailing });
+  return debounce(func, wait, {
+    'leading': leading,
+    'maxWait': wait,
+    'trailing': trailing
+  });
 }
 
 /**
