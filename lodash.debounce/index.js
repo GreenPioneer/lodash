@@ -1,5 +1,5 @@
 /**
- * lodash 4.0.2 (Custom Build) <https://lodash.com/>
+ * lodash 4.0.3 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -50,7 +50,7 @@ var nativeMax = Math.max;
  *
  * @static
  * @memberOf _
- * @type Function
+ * @type {Function}
  * @category Date
  * @returns {number} Returns the timestamp.
  * @example
@@ -192,8 +192,10 @@ function debounce(func, wait, options) {
       if (!lastCalled && !maxTimeoutId && !leading) {
         lastCalled = stamp;
       }
-      var remaining = maxWait - (stamp - lastCalled),
-          isCalled = remaining <= 0 || remaining > maxWait;
+      var remaining = maxWait - (stamp - lastCalled);
+
+      var isCalled = (remaining <= 0 || remaining > maxWait) &&
+        (leading || maxTimeoutId);
 
       if (isCalled) {
         if (maxTimeoutId) {
