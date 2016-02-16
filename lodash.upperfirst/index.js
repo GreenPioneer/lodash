@@ -1,5 +1,5 @@
 /**
- * lodash 4.1.1 (Custom Build) <https://lodash.com/>
+ * lodash 4.1.2 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
  * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -59,8 +59,11 @@ function createCaseFirst(methodName) {
   return function(string) {
     string = toString(string);
 
-    var strSymbols = reHasComplexSymbol.test(string) ? stringToArray(string) : undefined,
-        chr = strSymbols ? strSymbols[0] : string.charAt(0),
+    var strSymbols = reHasComplexSymbol.test(string)
+      ? stringToArray(string)
+      : undefined;
+
+    var chr = strSymbols ? strSymbols[0] : string.charAt(0),
         trailing = strSymbols ? strSymbols.slice(1).join('') : string.slice(1);
 
     return chr[methodName]() + trailing;
